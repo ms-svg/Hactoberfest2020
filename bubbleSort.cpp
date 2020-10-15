@@ -1,42 +1,26 @@
+from sys import stdin
+def bubbleSort(arr, n) :
+    for i in range(n - 1) :
+        for j in range(n - i - 1) :
+            if arr[j] > arr[j+1] :
+                temp = arr[j] 
+                arr[j] = arr[j + 1]
+                arr[j + 1] = temp 
+def takeInput() : 
+    n = int(input().strip()) 
+    if n == 0 : 
+        return list(), 0
+    arr = list(map(int, input().strip().split(" "))) 
+    return arr, n
+def printList(arr, n) :
+    for i in range(n) :
+        print(arr[i], end = " ") 
+    print() 
+t = int(input().strip()) 
+while t > 0 :
+    arr, n = takeInput()
+    bubbleSort(arr, n)
+    printList(arr, n) 
+    t-= 1
 
-#include <iostream>
 
-using namespace std;
-void binarySort(int arr[], int n){
-    int i, j;
-    
-    for(i = 0; i < n; i++){
-        for(j = 0; j < n-i-1; j++){
-            if(arr[j] > arr[1 + j]){
-                int temp = arr[j+1];
-                arr[j+1] = arr[j];
-                arr[j] = temp;
-            }
-        }
-    }
-    cout<<"After Sorting: "<<endl;
-    for(i = 0; i < n; i++)
-    cout << arr[i]<<" ";
-}
-
-int main()
-{
-    int n;
-    cout << "Enter the number of elements: ";
-    cin >> n;
-    
-    int *arr = new int[n];
-    cout<<"Enter the elements:"<<endl;
-    
-    for(int i = 0; i < n; i++){
-        cin >> arr[i];
-    }
-    cout <<"Before Sorting: "<<endl;
-    for(int i = 0; i < n; i++)
-    cout <<arr[i]<<" ";
-    cout<<endl;
-    
-    binarySort(arr, n);
-
-    return 0;
-}
